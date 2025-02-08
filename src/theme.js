@@ -1,7 +1,5 @@
-// jQuery is included via the sphinxcontrib-jquery extension that we depend on
 var jQuery = (typeof(window) != 'undefined') ? window.jQuery : require('jquery');
 
-// Sphinx theme nav state
 function ThemeNav () {
 
     var nav = {
@@ -19,16 +17,11 @@ function ThemeNav () {
     nav.enable = function (withStickyNav) {
         var self = this;
 
-        // TODO this can likely be removed once the theme javascript is broken
-        // out from the RTD assets. This just ensures old projects that are
-        // calling `enable()` get the sticky menu on by default. All other cals
-        // to `enable` should include an argument for enabling the sticky menu.
         if (typeof(withStickyNav) == 'undefined') {
             withStickyNav = true;
         }
 
         if (self.isRunning) {
-            // Only allow enabling nav logic once
             return;
         }
 
